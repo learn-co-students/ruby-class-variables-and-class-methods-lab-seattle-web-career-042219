@@ -28,7 +28,7 @@ class Song
   def self.genre_count
     counted_genres = {}
     @@genres.each do |current_genre|
-      counted_genres[current_genre] = 0 if counted_genres[current_genre].nil?
+      counted_genres[current_genre] ||= 0
       counted_genres[current_genre] += 1
     end
     counted_genres
@@ -37,7 +37,7 @@ class Song
   def self.artist_count
     counted_artists = {}
     @@artists.each do |current_artist|
-      counted_artists[current_artist] = 0 if counted_artists[current_artist].nil?
+      counted_artists[current_artist] ||= 0
       counted_artists[current_artist] += 1
     end
     counted_artists
