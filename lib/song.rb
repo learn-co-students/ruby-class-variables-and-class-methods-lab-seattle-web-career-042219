@@ -27,27 +27,23 @@ class Song
   end
 
   def self.genre_count
-    gen_count = {}
-    @@genres.each do |genre|
-      if !gen_count.key?(genre)
-        gen_count[genre] = 1
-      else
-        gen_count[genre] += 1
-      end
-    end
-    gen_count
+    helper(@@genres)
   end
 
   def self.artist_count
-    art_count = {}
-    @@artists.each do |artist|
-      if !art_count.key?(artist)
-        art_count[artist] = 1
+    helper(@@artists)
+  end
+
+  def self.helper(array)
+    new_hash ={}
+    array.each do |item|
+      if !new_hash.key?(item)
+        new_hash[item] = 1
       else
-        art_count[artist] += 1
+        new_hash[item] += 1
       end
     end
-    art_count
+    new_hash
   end
 
 end
